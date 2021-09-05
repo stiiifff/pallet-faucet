@@ -116,8 +116,7 @@ pub mod pallet {
 		/// pallet should not be used on production / incentivized networks (so, only on
 		/// non-incentivized testnets / in non-adversarial environments).
 		#[transactional]
-		// #[pallet::weight(((10_000 + T::DbWeight::get().reads_writes(2,2)), DispatchClass::Normal, Pays::Yes))]
-        #[pallet::weight(T::WeightInfo::claim_tokens())]
+        #[pallet::weight((T::WeightInfo::claim_tokens(), DispatchClass::Normal, Pays::No))]
 		pub fn claim_tokens(origin: OriginFor<T>) -> DispatchResult {
 			let who = ensure_signed(origin)?;
 
