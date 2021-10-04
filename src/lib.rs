@@ -86,7 +86,6 @@ pub mod pallet {
 
 	/// Events type.
 	#[pallet::event]
-	#[pallet::metadata(T::AccountId = "AccountId")]
 	#[pallet::generate_deposit(pub(super) fn deposit_event)]
 	pub enum Event<T: Config> {
 		// Faucet has dripped an amount of tokens to account [balance, who]
